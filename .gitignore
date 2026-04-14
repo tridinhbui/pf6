@@ -1,0 +1,16 @@
+# Dependencies
+node_modules
+
+# Build
+dist
+*.local
+
+# Logs & cache
+npm-debug.log*
+.vite
+
+# OS / editor
+.DS_Store
+*.swp
+.idea
+.vscode
