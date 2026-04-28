@@ -15,9 +15,11 @@ import {
 } from 'lucide-react';
 
 import anh1 from './assets/anh1.jpeg';
-import anh2 from './assets/anh2.jpeg';
-import anh3 from './assets/anh3.jpeg';
-import anh4 from './assets/anh4.jpeg';
+
+/** Fallback to hero asset until distinct editorial/contact assets are added to `src/assets`. */
+const anh2 = anh1;
+const anh3 = anh1;
+const anh4 = anh1;
 import './index.css';
 
 const LINKEDIN = 'https://www.linkedin.com/in/chilannguyen02';
@@ -93,7 +95,7 @@ const ChatBot = () => {
                   style={{
                     width: 8,
                     height: 8,
-                    background: 'var(--text)',
+                    background: 'var(--accent-rose)',
                     borderRadius: '50%',
                     opacity: 0.85,
                   }}
@@ -254,7 +256,7 @@ function App() {
             <span className="nav-brand">C. L. NGUYEN</span>
             <ul className="nav-links">
               <li>
-                <a href="#about">Method</a>
+                <a href="#about">Approach</a>
               </li>
               <li>
                 <a href="#education">Study</a>
@@ -296,7 +298,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.05 }}
               >
-                <span className="hero-eyebrow">Portfolio · National Economics University · Banking &amp; Strategy</span>
+                <span className="hero-eyebrow">Portfolio · refined finance · banking &amp; strategy</span>
                 <h1 className="hero-title">
                   Chi Lan
                   <br />
@@ -304,9 +306,9 @@ function App() {
                 </h1>
                 <p className="hero-lede">
                   I bridge{' '}
-                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>consulting-grade modeling</strong>,{' '}
-                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>banking strategy</strong>, and{' '}
-                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>risk-aware diligence</strong>
+                  <strong style={{ color: 'var(--accent-rose)', fontWeight: 600 }}>consulting-grade modeling</strong>,{' '}
+                  <strong style={{ color: 'var(--accent-rose)', fontWeight: 600 }}>banking strategy</strong>, and{' '}
+                  <strong style={{ color: 'var(--accent-rose)', fontWeight: 600 }}>risk-aware diligence</strong>
                   —from sizing sustainable lending opportunities and wealth-banking forecasts to IB pitches and
                   cross-border market entry for healthcare platforms.
                 </p>
@@ -356,8 +358,8 @@ function App() {
 
             <section id="about" style={{ borderTop: '1px solid var(--line)' }}>
               <div className="section-head">
-                <span className="section-label">Method</span>
-                <h2 className="section-title">Evidence first, narrative second</h2>
+                <span className="section-label">Approach</span>
+                <h2 className="section-title">Quiet rigor, readable narrative</h2>
               </div>
               <div className="about-split">
                 <div className="about-copy">
@@ -423,7 +425,7 @@ function App() {
               <div className="strip-inner">
                 <img src={anh3} alt="Editorial — between study and practice" className="strip-img" />
                 <div className="strip-caption">
-                  <span>Models are only useful when someone else can audit the logic.</span>
+                  <span>The quiet proof is in work others can trace—and trust.</span>
                   <span>Field note</span>
                 </div>
               </div>
