@@ -20,27 +20,27 @@ import anh3 from './assets/anh3.jpeg';
 import anh4 from './assets/anh4.jpeg';
 import './index.css';
 
-const LINKEDIN = 'https://www.linkedin.com/in/hoanglevu-tony/';
-const EMAIL = 'lehoang@bu.edu';
-const PHONE_DISPLAY = '470-385-9181';
-const PHONE_HREF = 'tel:+14703859181';
+const LINKEDIN = 'https://www.linkedin.com/in/chilannguyen02';
+const EMAIL = 'chilannguyen02@gmail.com';
+const PHONE_DISPLAY = '+84 705 166 875';
+const PHONE_HREF = 'tel:+84705166875';
 
 const questions = [
   {
-    q: 'What problem do you solve for teams?',
-    a: 'I turn messy financials into clear repayment signals, defendable valuation ranges, and decks that a credit committee or IC can actually use—without hand-waving.',
+    q: 'What do you focus on at work?',
+    a: 'Banking strategy, financial modeling, and market sizing—from sustainable lending opportunities and wealth banking forecasts to IB pitch decks and cross-border market entry.',
   },
   {
-    q: 'Vietnam bank internship in one sentence?',
-    a: 'SME tape at scale: 100+ files, internal scores, and diligence that cut turnaround time while keeping risk policy intact.',
+    q: 'McKinsey experience in one line?',
+    a: '$14B sustainable lending sizing, peer benchmarking, customer interviews, bank-wide strategy, and risk-framework diagnostics adopted by the CRO.',
   },
   {
-    q: 'What makes your project work stand out?',
-    a: 'Two end-to-end narratives: a multifamily DCF with explicit exit math, and a Goldman Sachs comp + DCF stack with segment-level drivers—not just a template.',
+    q: 'What stands out in your projects?',
+    a: 'A full acquisition proposal using EBITDA multiples ($33.3Mn narrative) and a Tesla DCF plus comparables with sensitivities and a football field.',
   },
   {
-    q: 'Tools you live in?',
-    a: 'Excel for structure, SQL when the data gets wide, PowerPoint when the story has to land in one room.',
+    q: 'Tools you use daily?',
+    a: 'Excel for models, SQL and Python when datasets scale, Power BI for dashboards, plus Bloomberg Terminal when markets matter.',
   },
 ];
 
@@ -50,7 +50,7 @@ const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
-      text: 'Quick prompts below — pick one to see how Hoang frames his work (no login, no tracking).',
+      text: 'Quick prompts below — pick one to see how Chi Lan frames her work (no login, no tracking).',
       sender: 'bot',
     },
   ]);
@@ -88,7 +88,7 @@ const ChatBot = () => {
           >
             <div className="chat-window">
               <div className="chat-header">
-                <h4>Ask Hoang</h4>
+                <h4>Ask Chi Lan</h4>
                 <div
                   style={{
                     width: 8,
@@ -153,7 +153,7 @@ const LoadingScreen = () => {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        H. L. VU
+        C. L. NGUYEN
       </motion.div>
       <div className="loader-bar-bg">
         <motion.div
@@ -251,7 +251,7 @@ function App() {
       {!loading && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.9 }}>
           <nav>
-            <span className="nav-brand">H. L. VU</span>
+            <span className="nav-brand">C. L. NGUYEN</span>
             <ul className="nav-links">
               <li>
                 <a href="#about">Method</a>
@@ -263,7 +263,7 @@ function App() {
                 <a href="#experience">Roles</a>
               </li>
               <li>
-                <a href="#leadership">Lead</a>
+                <a href="#credentials">Cred.</a>
               </li>
               <li>
                 <a href="#projects">Cases</a>
@@ -296,23 +296,24 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.05 }}
               >
-                <span className="hero-eyebrow">Portfolio · Boston University · Finance</span>
+                <span className="hero-eyebrow">Portfolio · National Economics University · Banking &amp; Strategy</span>
                 <h1 className="hero-title">
-                  Hoang Le
+                  Chi Lan
                   <br />
-                  <span className="gradient-text">Vu</span>
+                  <span className="gradient-text">Nguyen</span>
                 </h1>
                 <p className="hero-lede">
-                  I work at the intersection of{' '}
-                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>commercial credit</strong>,{' '}
-                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>public-market valuation</strong>, and{' '}
-                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>consumer P&amp;L</strong>—so the same
-                  person who stress-tests a loan book can also explain why a target price moved 15%.
+                  I bridge{' '}
+                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>consulting-grade modeling</strong>,{' '}
+                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>banking strategy</strong>, and{' '}
+                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>risk-aware diligence</strong>
+                  —from sizing sustainable lending opportunities and wealth-banking forecasts to IB pitches and
+                  cross-border market entry for healthcare platforms.
                 </p>
                 <div className="hero-meta">
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                     <MapPin size={15} strokeWidth={1.75} style={{ opacity: 0.55 }} />
-                    33 Buswell St., Boston, MA 02215
+                    Ho Chi Minh City · Hanoi · Vietnam
                   </span>
                   <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
                   <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>
@@ -347,8 +348,8 @@ function App() {
                 transition={{ duration: 1, delay: 0.15 }}
               >
                 <div className="hero-frame">
-                  <div className="photo-badge">GPA 3.93</div>
-                  <img src={anh1} alt="Hoang Le Vu — portrait" className="main-img" />
+                  <div className="photo-badge">Graduated with Distinction</div>
+                  <img src={anh1} alt="Chi Lan Nguyen — portrait" className="main-img" />
                 </div>
               </motion.div>
             </section>
@@ -361,26 +362,27 @@ function App() {
               <div className="about-split">
                 <div className="about-copy">
                   <p>
-                    Most of my learning happens where numbers meet judgment: a bank in Haiphong sizing SME exposure, a
-                    Chicago desk asking whether macro prints justify a target-price revision, and a Hanoi brand testing
-                    price and logistics on a U.S. marketplace.
+                    My work sits at the intersection of actuarial rigor and front-office judgment: McKinsey engagements
+                    spanning sustainable finance and bank-wide strategy, EY on early-warning systems and Basel-linked
+                    analytics, VC due diligence in Hong Kong, and IB-style models for medical tourism and hospital
+                    market entry.
                   </p>
                   <p>
-                    That mix keeps me honest—credit discipline on one side, market storytelling on the other—with BU
-                    coursework and club casing as the lab where I pressure-test both.
+                    Whether the question is a $14B lending opportunity, a five-year commercial-bank roadmap, or a
+                    cross-border go-to-market plan, I anchor the story in models and peer benchmarks others can audit.
                   </p>
                 </div>
                 <figure className="about-figure">
-                  <img src={anh2} alt="Hoang Le Vu — context" className="editorial-img" />
-                  <figcaption className="figure-caption">Boston · campus &amp; case rhythm</figcaption>
+                  <img src={anh2} alt="Chi Lan Nguyen — context" className="editorial-img" />
+                  <figcaption className="figure-caption">Vietnam · consulting &amp; finance</figcaption>
                 </figure>
               </div>
               <div className="stat-grid about-stats-row">
                 {[
-                  { icon: TrendingUp, label: 'North star', val: 'Defensible calls' },
-                  { icon: BarChart3, label: 'Builds', val: 'DCF · Comps · 3-statement' },
-                  { icon: PieChart, label: 'Verticals touched', val: 'Banking · IB · CPG' },
-                  { icon: Globe, label: 'Geography', val: 'U.S. ↔ Vietnam' },
+                  { icon: TrendingUp, label: 'North star', val: 'Client-ready insights' },
+                  { icon: BarChart3, label: 'Builds', val: 'DCF · Comps · Forecasts' },
+                  { icon: PieChart, label: 'Sectors', val: 'Banking · IB · VC' },
+                  { icon: Globe, label: 'Geography', val: 'VN · HK · regional' },
                 ].map((item, i) => (
                   <div key={i} className="crystal-panel stat-cell">
                     <item.icon size={22} color={iconColor} strokeWidth={1.75} style={{ marginBottom: 14 }} />
@@ -397,19 +399,21 @@ function App() {
                 <h2 className="section-title">Academic core</h2>
               </div>
               <div className="crystal-panel edu-card">
-                <h3>Boston University</h3>
+                <h3>National Economics University</h3>
                 <p className="edu-sub">
-                  Boston, MA — B.S. Business Administration (Finance) — GPA 3.93 — Aug. 2025 to May 2029
+                  Hanoi, Vietnam — Bachelor of Actuarial Science and Risk Management — Graduated with Distinction —
+                  Sep 2020 – Aug 2024
                 </p>
                 <ul className="edu-list">
                   <li>
-                    <strong style={{ color: 'var(--text)' }}>Coursework: </strong>
-                    Financial Accounting, Corporate Finance, Micro &amp; Macro, Data &amp; Business Analytics,
-                    Information Systems &amp; Technologies
+                    <strong style={{ color: 'var(--text)' }}>Candidate &amp; coursework: </strong>
+                    CFA Level I Candidate · Financial Asset Valuation, Mathematical Finance, Corporate Finance, Portfolio
+                    Management
                   </li>
                   <li>
-                    <strong style={{ color: 'var(--text)' }}>Credentials: </strong>
-                    Corporate Finance (CFI®) · PwC Audit Simulation®
+                    <strong style={{ color: 'var(--text)' }}>Recognition: </strong>
+                    SOA VEE credits (Mathematical Finance &amp; Economics) · Academic Excellence Scholarship (5
+                    semesters)
                   </li>
                 </ul>
               </div>
@@ -432,45 +436,57 @@ function App() {
               </div>
               <div>
                 <ExperienceCard
-                  company="Military Commercial Joint Stock Bank"
-                  role="Investor Relation Intern"
-                  location="Hai Phong, Vietnam"
-                  date="November 2025 – January 2026"
+                  company="Delta West Group"
+                  role="Investment Banking Analyst"
+                  location="Ho Chi Minh City, Vietnam"
+                  date="Mar 2026 – Present"
                   descs={[
-                    'Analysed financial statements & cashflow of 100+ SME clients to evaluate repayment capacity, supporting loan structuring decisions ranging from 10–50 billion VND and ensuring alignment with risk management policies.',
-                    'Assessed SME credit worthiness using internal scoring models to recommend tailored lending terms, managing a client portfolio valued at 200 billion VND.',
-                    'Performed financial ratio analyses and audited receipts as part of client due diligence, completing 60% of preliminary assessments and improving evaluation turnaround time by 25%.',
+                    'Financial Modeling & Investor Materials: Built comprehensive financial models and pitch decks for a cross-border medical tourism platform, highlighting ~$200K revenue potential and growth roadmap.',
+                    'Market Entry Strategy Assessment: Evaluated go-to-market strategy for a leading Japanese hospital entering Vietnam, USA and Indonesia, assessing demand, competitive landscape, channels and revenue potential.',
                   ]}
                 />
                 <ExperienceCard
-                  company="FinBud AI"
-                  role="Financial Analyst Intern"
-                  location="Chicago, IL"
-                  date="May 2025 – August 2025"
+                  company="McKinsey & Company"
+                  role="Project Consultant · Banking & Financial Services"
+                  location="Ho Chi Minh City · Hanoi, Vietnam"
+                  date="Jan 2024 – Sep 2025"
                   descs={[
-                    'Analysed equity valuation of 3 major companies (Tesla, Goldman Sachs, Blackstone) using DCF and comparable company analysis, supporting investment recommendations for a portfolio valued at over $50M.',
-                    'Conducted market research across 10+ macroeconomic indicators and sector trends, identifying key valuation drivers that informed a 15% adjustment in target price estimates.',
-                    'Designed and presented an investment recommendation deck summarizing valuation insights and strategic outlook, influencing 5 potential investment opportunities and guiding internal investment decisions.',
+                    'Financial Modeling: Developed a market evaluation model to identify a $14B opportunity in sustainable lending; benchmarked 11 peers and conducted 10+ customer interviews to inform sustainable finance offerings.',
+                    'Industry Sizing, Research & Insights: Built a revenue forecasting model for the bank’s Wealth Banking division to support strategic planning and growth.',
+                    'Conducted extensive industry research, market sizing, and financial statement analysis for multiple banks, including TOI diagnostics, performance benchmarking, and TOI forecasting.',
+                    'Bank-Wide Process Assessment / Strategy: Conducted current-state assessment and developed 5-year strategy for a commercial bank.',
+                    'Conducted profitability and performance diagnostics, benchmarking ROE/ROTE, NIM, CASA, and non-interest income against peers to identify gaps and revenue–cost drivers.',
+                    'Evaluated the client’s comprehensive risk framework (credit models, risk appetite, etc.); identified 3 key gaps and recommended actions adopted by the client’s CRO.',
                   ]}
                 />
                 <ExperienceCard
-                  company="Hermore Cosmetics"
-                  role="Financial Analyst Intern"
-                  location="Hanoi, Vietnam"
-                  date="June 2024 – September 2024"
+                  company="Ernst & Young"
+                  role="Financial Risk Analyst Intern"
+                  location="Vietnam"
+                  date="2024"
                   descs={[
-                    'Conducted Profit & Loss analyses for 15+ SKUs as part of Amazon U.S. expansion strategy, identifying cost drivers and supporting pricing adjustments that improved projected net margins by 12%.',
-                    'Evaluated pricing strategy and margin impact using contribution margin and break-even analysis, informing competitive positioning for products targeting a $200K annual revenue segment.',
-                    'Analysed logistics cost structure across cross-border fulfillment channels, proposing efficiency improvements that reduced estimated per-unit shipping costs by 18% and enhanced overall supply chain performance.',
+                    'Forecasting & Risk Modeling: Contributed to development of an Early Warning System (EWS) and the criteria set for customer credit scoring for a commercial bank.',
+                    'Risk Analysis: Extracted and analyzed financial and risk metrics data from 6 Asian markets to support client reporting; assessed Basel frameworks and regulatory compliance.',
+                    'Contractual Obligations: Handled technical documents on debt collection, ESG, and Internal Ratings-Based approach.',
+                  ]}
+                />
+                <ExperienceCard
+                  company="Rouge International & Rouge Ventures"
+                  role="Venture Capital Intern"
+                  location="Hong Kong SAR"
+                  date="Oct 2023 – Jan 2024"
+                  descs={[
+                    'Due Diligence: Conducted due diligence on business models, financial statements, cost structures, and unit economics to support valuation and portfolio monitoring.',
+                    'Executive Reporting: Prepared financial summaries, dashboards, and insight reports to support investment committee decision-making.',
                   ]}
                 />
               </div>
             </section>
 
-            <section id="leadership">
+            <section id="credentials">
               <div className="section-head">
-                <span className="section-label">Lead</span>
-                <h2 className="section-title">Campus ownership</h2>
+                <span className="section-label">Cred.</span>
+                <h2 className="section-title">Credentials & highlights</h2>
               </div>
               <div className="lead-grid">
                 <motion.div
@@ -479,14 +495,14 @@ function App() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  <div className="lead-meta">Ongoing</div>
-                  <h3>Boston University Accounting Association</h3>
+                  <div className="lead-meta">Professional</div>
+                  <h3>CFA Program</h3>
                   <p className="lead-role" style={{ color: 'var(--text-dim)', fontStyle: 'italic', marginBottom: 12 }}>
-                    Director of Casing
+                    Level I Candidate
                   </p>
                   <p>
-                    Running the Learning Case Program: weekly cadence, member comms at 50+, and tight prep for
-                    student-led presentations.
+                    Aligning coursework and practice with investment analysis and ethics standards alongside banking and
+                    consulting work.
                   </p>
                 </motion.div>
                 <motion.div
@@ -496,14 +512,14 @@ function App() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.06 }}
                 >
-                  <div className="lead-meta">Ongoing</div>
-                  <h3>Boston University Financial Modeling Club</h3>
+                  <div className="lead-meta">Academic</div>
+                  <h3>National Economics University</h3>
                   <p className="lead-role" style={{ color: 'var(--text-dim)', fontStyle: 'italic', marginBottom: 12 }}>
-                    Junior Analyst
+                    SOA VEE · Scholarships
                   </p>
                   <p>
-                    Deeper valuation drills plus mentorship on recruiting, technical screens, and how to network without
-                    sounding rehearsed.
+                    Earned SOA VEE credits in Mathematical Finance &amp; Economics; Academic Excellence Scholarship for
+                    five semesters.
                   </p>
                 </motion.div>
               </div>
@@ -516,30 +532,30 @@ function App() {
               </div>
               <div className="project-grid">
                 <ProjectCard
-                  badge="Real assets"
-                  title="Blackstone multifamily housing analysis"
+                  badge="Proposal deck"
+                  title="Vietnam Float Glass acquisition proposal"
                   bullets={[
                     {
-                      label: 'Underwrite:',
-                      text: 'Ten-year DCF with rent roll, opex, and exit—IRR and valuation tied to explicit assumptions.',
+                      label: 'Transaction:',
+                      text: '$33.3Mn model and proposal for hypothetical Lumina Glaze’s acquisition of a leading glass manufacturer using the EBITDA multiple method.',
                     },
                     {
-                      label: 'Risk:',
-                      text: 'Sensitivities on cap rate, occupancy, and rent growth to show where the thesis breaks.',
+                      label: 'Deliverable:',
+                      text: 'Structured narrative tying valuation assumptions to strategic rationale for stakeholders.',
                     },
                   ]}
                 />
                 <ProjectCard
-                  badge="Markets"
-                  title="Goldman Sachs equity research analysis"
+                  badge="Valuation model"
+                  title="Tesla enterprise valuation model"
                   bullets={[
                     {
-                      label: 'Price:',
-                      text: 'DCF plus comps with implied bands and a clean bull / bear framing.',
+                      label: 'Model:',
+                      text: 'Five-year company valuation using DCF and comparables, with financial statement analysis.',
                     },
                     {
-                      label: 'Context:',
-                      text: 'Segment revenue bridges (IB, markets, AM) with macro links to margin and growth.',
+                      label: 'Outputs:',
+                      text: 'DCF sensitivities and football field chart to summarize valuation ranges.',
                     },
                   ]}
                 />
@@ -553,38 +569,33 @@ function App() {
               </div>
               <div className="skills-container">
                 <div className="crystal-panel skill-category">
-                  <h4>Financial modeling</h4>
+                  <h4>Financial modeling &amp; valuation</h4>
                   <ul className="skill-list">
                     <li>DCF</li>
-                    <li>Three-statement model</li>
-                    <li>Comparable company analysis</li>
-                    <li>Valuation</li>
+                    <li>Comparables</li>
                     <li>Sensitivity analysis</li>
+                    <li>Capital structure</li>
+                    <li>Investment evaluation</li>
                   </ul>
                 </div>
                 <div className="crystal-panel skill-category">
-                  <h4>Financial statement analysis</h4>
+                  <h4>Market analysis &amp; strategy</h4>
                   <ul className="skill-list">
-                    <li>Ratio analysis</li>
-                    <li>Cash flow analysis</li>
-                    <li>Profitability analysis</li>
-                    <li>Liquidity analysis</li>
+                    <li>Macroeconomic tracking</li>
+                    <li>Sector trends</li>
+                    <li>Investment analysis</li>
+                    <li>Asset positioning</li>
                   </ul>
                 </div>
                 <div className="crystal-panel skill-category">
-                  <h4>Tools</h4>
+                  <h4>Technical tools</h4>
                   <ul className="skill-list">
-                    <li>Microsoft Excel (Pivot Tables, VLOOKUP)</li>
-                    <li>PowerPoint</li>
+                    <li>Excel (financial modeling)</li>
                     <li>SQL</li>
-                  </ul>
-                </div>
-                <div className="crystal-panel skill-category">
-                  <h4>Client &amp; professional</h4>
-                  <ul className="skill-list">
-                    <li>Presentation deck creation</li>
-                    <li>Stakeholder communication</li>
-                    <li>Data-driven decision making</li>
+                    <li>Python</li>
+                    <li>R</li>
+                    <li>Power BI</li>
+                    <li>Bloomberg Terminal</li>
                   </ul>
                 </div>
               </div>
@@ -593,14 +604,14 @@ function App() {
             <section id="contact" style={{ paddingBottom: 120 }}>
               <div className="contact-layout">
                 <div className="contact-photo">
-                  <img src={anh4} alt="Hoang Le Vu" />
+                  <img src={anh4} alt="Chi Lan Nguyen" />
                 </div>
                 <div className="contact-inner">
                   <span className="section-label">Contact</span>
                   <h2>Let&apos;s talk</h2>
                   <p className="contact-lede">
-                    Internships, case collaborations, or a straight coffee chat about credit vs. equity workflows—I read
-                    every note.
+                    Opportunities in consulting, banking strategy, investment banking, or risk—send a note with context
+                    and timeline.
                   </p>
                   <div className="contact-info">
                     <a href={`mailto:${EMAIL}`}>
@@ -615,7 +626,7 @@ function App() {
                     <span className="contact-sep">·</span>
                     <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">
                       <ExternalLink size={18} color={iconColor} strokeWidth={1.75} />
-                      linkedin.com/in/hoanglevu-tony
+                      LinkedIn profile
                     </a>
                   </div>
                 </div>
@@ -623,7 +634,7 @@ function App() {
             </section>
 
             <footer className="site-footer">
-              © 2026 Hoang Le Vu — single-page portfolio · built for clarity, not noise
+              © 2026 Chi Lan Nguyen — single-page portfolio · built for clarity, not noise
             </footer>
           </main>
 
