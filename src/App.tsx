@@ -15,12 +15,12 @@ import {
 } from 'lucide-react';
 
 import anh1 from './assets/anh1.jpeg';
-
-/** Fallback to hero asset until distinct editorial/contact assets are added to `src/assets`. */
-const anh2 = anh1;
-const anh3 = anh1;
-const anh4 = anh1;
+import anh2 from './assets/anh2.jpeg';
+import anh3 from './assets/anh3.jpeg';
 import './index.css';
+
+/** Editorial motion — slow, opacity-led; no bounce */
+const editorialEase = [0.22, 0.05, 0.23, 1] as const;
 
 const LINKEDIN = 'https://www.linkedin.com/in/chilannguyen02';
 const EMAIL = 'chilannguyen02@gmail.com';
@@ -73,8 +73,7 @@ const ChatBot = () => {
       <motion.div
         className="chat-bubble"
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.06 }}
-        whileTap={{ scale: 0.94 }}
+        whileHover={{ scale: 1.02 }}
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
         {isOpen ? <X size={22} strokeWidth={2} /> : <MessageSquare size={22} strokeWidth={2} />}
@@ -84,9 +83,10 @@ const ChatBot = () => {
         {isOpen && (
           <motion.div
             className="chatbot-container"
-            initial={{ opacity: 0, y: 40, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.96 }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 12 }}
+            transition={{ duration: 0.95, ease: editorialEase }}
           >
             <div className="chat-window">
               <div className="chat-header">
@@ -95,7 +95,7 @@ const ChatBot = () => {
                   style={{
                     width: 8,
                     height: 8,
-                    background: 'var(--accent-rose)',
+                    background: 'var(--text)',
                     borderRadius: '50%',
                     opacity: 0.85,
                   }}
@@ -106,8 +106,9 @@ const ChatBot = () => {
                   <motion.div
                     key={i}
                     className={`msg msg-${m.sender}`}
-                    initial={{ opacity: 0, x: m.sender === 'bot' ? -8 : 8 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.55, ease: editorialEase }}
                   >
                     {m.text}
                   </motion.div>
@@ -144,16 +145,21 @@ const LoadingScreen = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prev) => (prev < 100 ? prev + 1 : 100));
-    }, 14);
+    }, 18);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <motion.div className="loading-screen" exit={{ opacity: 0 }} transition={{ duration: 0.8 }}>
+    <motion.div
+      className="loading-screen"
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1, ease: editorialEase }}
+    >
       <motion.div
         className="loader-logo"
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.1, ease: editorialEase }}
       >
         C. L. NGUYEN
       </motion.div>
@@ -179,9 +185,10 @@ type ExpProps = {
 
 const ExperienceCard = ({ company, role, location, date, descs }: ExpProps) => (
   <motion.div
-    initial={{ opacity: 0, x: -16 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true }}
+    initial={{ opacity: 0, y: 14 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-48px' }}
+    transition={{ duration: 1.15, ease: editorialEase }}
     className="exp-card"
   >
     <div className="exp-date">
@@ -210,9 +217,10 @@ type ProjectProps = {
 
 const ProjectCard = ({ title, badge, bullets }: ProjectProps) => (
   <motion.div
-    initial={{ opacity: 0, y: 24 }}
+    initial={{ opacity: 0, y: 18 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
+    viewport={{ once: true, margin: '-48px' }}
+    transition={{ duration: 1.2, ease: editorialEase }}
     className="crystal-panel card-3d"
   >
     <span className="badge">{badge}</span>
@@ -224,7 +232,12 @@ const ProjectCard = ({ title, badge, bullets }: ProjectProps) => (
         </li>
       ))}
     </ul>
-    <motion.a href="#contact" className="project-link" whileHover={{ x: 6 }}>
+    <motion.a
+      href="#contact"
+      className="project-link"
+      whileHover={{ x: 3, opacity: 0.72 }}
+      transition={{ duration: 0.75, ease: editorialEase }}
+    >
       Start a conversation <ArrowRight size={14} strokeWidth={2.5} />
     </motion.a>
   </motion.div>
@@ -233,10 +246,10 @@ const ProjectCard = ({ title, badge, bullets }: ProjectProps) => (
 function App() {
   const [loading, setLoading] = useState(true);
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 32 });
+  const scaleX = useSpring(scrollYProgress, { stiffness: 48, damping: 44, restDelta: 0.001 });
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1900);
+    const timer = setTimeout(() => setLoading(false), 2200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -251,7 +264,7 @@ function App() {
       <motion.div className="scroll-progress" style={{ scaleX, transformOrigin: '0%' }} />
 
       {!loading && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.9 }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.35, ease: editorialEase }}>
           <nav>
             <span className="nav-brand">C. L. NGUYEN</span>
             <ul className="nav-links">
@@ -294,9 +307,9 @@ function App() {
             <section className="hero">
               <motion.div
                 className="hero-content"
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.85, delay: 0.05 }}
+                transition={{ duration: 1.2, ease: editorialEase, delay: 0.04 }}
               >
                 <span className="hero-eyebrow">Portfolio · refined finance · banking &amp; strategy</span>
                 <h1 className="hero-title">
@@ -306,9 +319,9 @@ function App() {
                 </h1>
                 <p className="hero-lede">
                   I bridge{' '}
-                  <strong style={{ color: 'var(--accent-rose)', fontWeight: 600 }}>consulting-grade modeling</strong>,{' '}
-                  <strong style={{ color: 'var(--accent-rose)', fontWeight: 600 }}>banking strategy</strong>, and{' '}
-                  <strong style={{ color: 'var(--accent-rose)', fontWeight: 600 }}>risk-aware diligence</strong>
+                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>consulting-grade modeling</strong>,{' '}
+                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>banking strategy</strong>, and{' '}
+                  <strong style={{ color: 'var(--text)', fontWeight: 600 }}>risk-aware diligence</strong>
                   —from sizing sustainable lending opportunities and wealth-banking forecasts to IB pitches and
                   cross-border market entry for healthcare platforms.
                 </p>
@@ -324,30 +337,24 @@ function App() {
                   </a>
                 </div>
                 <div className="hero-cta-row">
-                  <motion.a href={`mailto:${EMAIL}`} whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <a href={`mailto:${EMAIL}`}>
                     <span className="btn-primary" style={{ display: 'inline-block' }}>
                       Email
                     </span>
-                  </motion.a>
-                  <motion.a
-                    href={LINKEDIN}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
+                  </a>
+                  <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">
                     <span className="btn-ghost" style={{ display: 'inline-block' }}>
                       LinkedIn
                     </span>
-                  </motion.a>
+                  </a>
                 </div>
               </motion.div>
 
               <motion.div
                 className="hero-visual"
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.15 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.35, ease: editorialEase, delay: 0.12 }}
               >
                 <div className="hero-frame">
                   <div className="photo-badge">Graduated with Distinction</div>
@@ -356,7 +363,7 @@ function App() {
               </motion.div>
             </section>
 
-            <section id="about" style={{ borderTop: '1px solid var(--line)' }}>
+            <section id="about">
               <div className="section-head">
                 <span className="section-label">Approach</span>
                 <h2 className="section-title">Quiet rigor, readable narrative</h2>
@@ -493,9 +500,10 @@ function App() {
               <div className="lead-grid">
                 <motion.div
                   className="crystal-panel lead-card"
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 1.15, ease: editorialEase }}
                 >
                   <div className="lead-meta">Professional</div>
                   <h3>CFA Program</h3>
@@ -509,10 +517,10 @@ function App() {
                 </motion.div>
                 <motion.div
                   className="crystal-panel lead-card"
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.06 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 1.15, ease: editorialEase, delay: 0.06 }}
                 >
                   <div className="lead-meta">Academic</div>
                   <h3>National Economics University</h3>
@@ -606,7 +614,7 @@ function App() {
             <section id="contact" style={{ paddingBottom: 120 }}>
               <div className="contact-layout">
                 <div className="contact-photo">
-                  <img src={anh4} alt="Chi Lan Nguyen" />
+                  <img src={anh1} alt="Chi Lan Nguyen — portrait" />
                 </div>
                 <div className="contact-inner">
                   <span className="section-label">Contact</span>
